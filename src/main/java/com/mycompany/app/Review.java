@@ -1,5 +1,4 @@
 //package org.openjfx;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -20,7 +19,8 @@ public class Review extends Application {
 
     private Stage editStage;
 
-    private Immigrant currentImmigrant = new Immigrant("Johnny", "Yolo", "A123456");
+    private Immigrant currentImmigrant;
+
     public boolean supplementCheck() {
         // Method to perform a validation check on the immigrant data
         // Implement the validation logic here
@@ -83,15 +83,15 @@ public class Review extends Application {
     @Override
     public void start(Stage stage) {
  
-        alienLabel = new Label("Alien Number: " + currentImmigrant.getAlienID());
-        firstLabel = new Label("First Name: " + currentImmigrant.getFirstName());
-        lastLabel = new Label("Last Name: " + currentImmigrant.getLastName());
-        statusLabel = new Label("Status: " + currentImmigrant.getStatus());
+        alienLabel = new Label("Alien Number: ");
+        firstLabel = new Label("First Name: ");
+        lastLabel = new Label("Last Name: ");
+        statusLabel = new Label("Status: ");
         Label messageLabel = new Label("");
 
         
         // Set the font size for the labels
-        alienLabel.setFont(Font.font(30)); 
+        alienLabel.setFont(Font.font(30));
         firstLabel.setFont(Font.font(30));
         lastLabel.setFont(Font.font(30));
         statusLabel.setFont(Font.font(30));
@@ -130,6 +130,16 @@ public class Review extends Application {
         });
 
         edit.setOnAction(e -> edit());
+        
+        next.setOnAction(e -> {
+            currentImmigrant = WorkflowTable.getFirst();
+            
+            alienLabel.setText("Alien Number: " + currentImmigrant.getAlienID());
+			firstLabel.setText("First Name: " + currentImmigrant.getFirstName());
+			lastLabel.setText("Last Name: " + currentImmigrant.getLastName());
+			statusLabel.setText("Status: " + currentImmigrant.getStatus());
+			messageLabel.setText("");
+        });
 
         HBox hbox = new HBox();
         hbox.getChildren().addAll(check, edit, valid, next);

@@ -17,7 +17,7 @@ public class Immigrant{
 	
 	public Immigrant createImmigrant(String firstName, String lastName, String Anum)
 	{
-		searchedImmigrant = Database.getImmigrant(firstName, lastName, Anum);	
+		searchedImmigrant = Database.getImmigrant(firstName, lastName, Anum);
 		return searchedImmigrant;
 	}
 	
@@ -27,7 +27,7 @@ public class Immigrant{
 		if(searchedImmigrant1.validateInfo())
 			searchedImmigrant1 = Database.getImmigrant(firstName, lastName, Anum);
 		else
-			return null;	
+			return null;
 		return searchedImmigrant1;
 	}
 

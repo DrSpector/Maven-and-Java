@@ -3,10 +3,9 @@ import java.util.ArrayList;
 public class WorkflowTable {
 	
 	
-    public static ArrayList<Immigrant> wft;
+    public static ArrayList<Immigrant> wft= new ArrayList<>();;
 
 	private WorkflowTable(){
-		WorkflowTable.wft = new ArrayList<>();
 	}
 
 

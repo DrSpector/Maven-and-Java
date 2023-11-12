@@ -1,16 +1,17 @@
-import java.beans.EventHandler;
 import java.util.Scanner;
-
-import javax.swing.GroupLayout.Group;
-
-import com.apple.eawt.Application;
-
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
+import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import javafx.scene.layout.GridPane;
+import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 public class Driver extends Application
 {
 
@@ -28,8 +29,8 @@ public class Driver extends Application
 	grid.getChildren().add(DE);
 
 	DE.setOnAction(new EventHandler<ActionEvent>() {
-       		@Override
-        	public void handle(ActionEvent event) {
+			@Override
+			public void handle(ActionEvent event) {
 			Stage DEStage = new Stage();
 			DEScreen DE = new DEScreen();
 			DE.start(DEStage);
@@ -67,6 +68,9 @@ public class Driver extends Application
     public static void main( String[] args )
     {
 	Scanner keyboard = new Scanner(System.in);
+
+
+	WorkflowTable.setNext(new Immigrant("Jon","Smith","A1245"));
 
 	Database database = new Database();
 	database.setImmigrant(new Immigrant("Jon","Smith","A1245"));
