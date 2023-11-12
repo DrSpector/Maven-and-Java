@@ -1,17 +1,16 @@
+import java.beans.EventHandler;
 import java.util.Scanner;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
-import javafx.scene.layout.GridPane;
-import javafx.scene.control.TextField;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.control.Button;
+import javax.swing.GroupLayout.Group;
+
+import com.apple.eawt.Application;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 public class Driver extends Application
 {
 
@@ -68,7 +67,7 @@ public class Driver extends Application
     public static void main( String[] args )
     {
 	Scanner keyboard = new Scanner(System.in);
-	
+
 	Database database = new Database();
 	database.setImmigrant(new Immigrant("Jon","Smith","A1245"));
 	database.setImmigrant(new Immigrant("Ron","Smith","A1246"));

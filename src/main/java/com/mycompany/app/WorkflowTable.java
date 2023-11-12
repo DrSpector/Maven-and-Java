@@ -1,34 +1,41 @@
-
+import java.util.ArrayList;
 
 public class WorkflowTable {
-
-	
-	//Constructor
-	public WorkflowTable()
-	{
-		
-	}
-
-	//Immigrant i - The Immigrant record to store in the queue
-	//return an integer ID for the immigrant.
-	public int setNext(Immigrant i)
-	{
-		return -1;
-	}
-
-	//Peek at the queue
-	//return The Immigrant at the front of the queue.
-	public Immigrant getFirst()
-	{
-		return null;
-	}
-
-	//Pop the queue
-	//return the Immigrant that was removed from the queue
-	public Immigrant removeFirst()
-	{
-		return null;
-	}
 	
 	
+    public static ArrayList<Immigrant> wft;
+
+	private WorkflowTable(){
+		WorkflowTable.wft = new ArrayList<>();
+	}
+
+
+    // Immigrant i - The Immigrant record to store in the queue
+    // return an integer ID for the immigrant.
+    public static int setNext(Immigrant immigrant) {
+        wft.add(immigrant);
+        return wft.indexOf(immigrant);
+    }
+
+    // Peek at the queue
+    // return The Immigrant at the front of the queue.
+    public static Immigrant getFirst() {
+        if (!wft.isEmpty()) {
+            return wft.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    // Pop the queue
+    // return the Immigrant that was removed from the queue
+    public static Immigrant removeFirst() {
+        if (!wft.isEmpty()) {
+            // Remove the first immigrant and return it
+            return wft.remove(0);
+        } else {
+            return null;
+        }
+    }
 }
+
