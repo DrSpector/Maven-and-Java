@@ -111,19 +111,28 @@ public class DEScreen extends Application {
 		lNameOutput.setText("");
 		idOutput.setText("");
 		statusInput.setText("");
-		Immigrant foundImm = Immigrant.createImmigrant1(idInput.getText(),fNameInput.getText(),lNameInput.getText());
-		if(foundImm != null)
+
+		if(idInput.getText().isEmpty() || fNameInput.getText().isEmpty() || lNameInput.getText().isEmpty())
 		{
-			userMessage.setVisible(false);
-			fNameOutput.setText(foundImm.getFirstName());
-			lNameOutput.setText(foundImm.getLastName());
-			idOutput.setText(foundImm.getAlienID());
-			statusInput.setText(foundImm.getStatus());
+			userMessage.setText("Error, one or more fields blank.");
+			userMessage.setVisible(true);
 		}
 		else
-		{
-			userMessage.setText("Immigrant not Found.");
-			userMessage.setVisible(true);
+		{	
+			Immigrant foundImm = Immigrant.createImmigrant1(idInput.getText(),fNameInput.getText(),lNameInput.getText());
+			if(foundImm != null)
+			{
+				userMessage.setVisible(false);
+				fNameOutput.setText(foundImm.getFirstName());
+				lNameOutput.setText(foundImm.getLastName());
+				idOutput.setText(foundImm.getAlienID());
+				statusInput.setText(foundImm.getStatus());
+			}
+			else
+			{
+				userMessage.setText("Immigrant not Found.");
+				userMessage.setVisible(true);
+			}
 		}
 		
             }
@@ -138,6 +147,7 @@ public class DEScreen extends Application {
 			userMessage.setVisible(false);
 			putImm.setStatus(statusInput.getText());
 			Database.setImmigrant(putImm);
+			WorkflowTable.setNext(putImm);
 		}
 		else
 		{
