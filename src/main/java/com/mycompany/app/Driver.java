@@ -71,6 +71,7 @@ public class Driver extends Application
 
 
 	WorkflowTable.setNext(new Immigrant("Jon","Smith","A1245"));
+	WorkflowTable.setNext(new Immigrant("JOJO","Smitch","A007"));
 
 	Database database = new Database();
 	database.setImmigrant(new Immigrant("Jon","Smith","A1245"));

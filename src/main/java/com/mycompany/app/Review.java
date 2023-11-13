@@ -104,6 +104,7 @@ public class Review extends Application {
         Button edit = new Button("Edit");
         Button valid = new Button("Valid");
         Button next = new Button("Next");
+        Button done = new Button("Done");
 
         check.setOnAction(e -> {
             // Code to be executed when the "Check" button is clicked
@@ -133,16 +134,32 @@ public class Review extends Application {
         
         next.setOnAction(e -> {
             currentImmigrant = WorkflowTable.getFirst();
-            
-            alienLabel.setText("Alien Number: " + currentImmigrant.getAlienID());
-			firstLabel.setText("First Name: " + currentImmigrant.getFirstName());
-			lastLabel.setText("Last Name: " + currentImmigrant.getLastName());
-			statusLabel.setText("Status: " + currentImmigrant.getStatus());
-			messageLabel.setText("");
+            if(currentImmigrant == null){
+            	alienLabel.setText("Alien Number: ");
+				firstLabel.setText("First Name: ");
+				lastLabel.setText("Last Name: ");
+				statusLabel.setText("Status: ");
+            	messageLabel.setText("End of table");
+            	
+            }
+            else{
+				alienLabel.setText("Alien Number: " + currentImmigrant.getAlienID());
+				firstLabel.setText("First Name: " + currentImmigrant.getFirstName());
+				lastLabel.setText("Last Name: " + currentImmigrant.getLastName());
+				statusLabel.setText("Status: " + currentImmigrant.getStatus());
+				messageLabel.setText("");
+			}
         });
-
+        
+        done.setOnAction(e ->{
+        	currentImmigrant = WorkflowTable.removeFirst();
+        	messageLabel.setText("Immigrant saved");
+        });
+        
+		
+		
         HBox hbox = new HBox();
-        hbox.getChildren().addAll(check, edit, valid, next);
+        hbox.getChildren().addAll(check, edit, valid, next, done);
         
         // Create an VBox to hold the labels
         VBox vbox = new VBox();
