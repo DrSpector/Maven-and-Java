@@ -5,7 +5,7 @@ import org.junit.Test;
 public class ImmigrantTest {
 	private Immigrant immigrant = null;
 	private Immigrant immigrant3 = null;
-	
+	Database database = new Database();
 	public static void main(String[] args)
     {
         org.junit.runner.JUnitCore.main("ImmigrantTest");
@@ -14,7 +14,9 @@ public class ImmigrantTest {
     @Before
     public void setUp() {
     	immigrant = new Immigrant("John", "Doe", "123456");
-    	
+	database.setImmigrant(immigrant);
+	database.setImmigrant(new Immigrant("Joe","Deck","0987654"));
+
     }
 	
     @Test
@@ -30,6 +32,28 @@ public class ImmigrantTest {
         assertEquals("123456", immigrant.getAlienID());
         
         immigrant3 = new Immigrant("Joe", "Deck", "0987654");
+        assertEquals("Joe", immigrant3.getFirstName());
+        assertEquals("Deck", immigrant3.getLastName());
+        assertEquals("0987654", immigrant3.getAlienID());
+        
+    }
+
+	@Test
+    public void testCreateImmigrant1() {
+
+        
+
+	immigrant = Immigrant.createImmigrant1(null,"lorem","ipsum");
+	assertNull(immigrant);
+
+	immigrant = Immigrant.createImmigrant1("lorem",null,"ipsum");
+	assertNull(immigrant);
+
+	immigrant = Immigrant.createImmigrant1("lorem","ipsum",null);
+	assertNull(immigrant);
+
+        immigrant3 = Immigrant.createImmigrant1("0987654", "Joe","Deck");
+	assertNotNull(immigrant3);
         assertEquals("Joe", immigrant3.getFirstName());
         assertEquals("Deck", immigrant3.getLastName());
         assertEquals("0987654", immigrant3.getAlienID());

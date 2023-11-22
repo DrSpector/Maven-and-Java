@@ -21,11 +21,11 @@ public class Immigrant{
 		return searchedImmigrant;
 	}
 	
-	public static Immigrant createImmigrant1(String firstName, String lastName, String Anum)
+	public static Immigrant createImmigrant1(String Anum, String firstName, String lastName)
 	{
 		Immigrant searchedImmigrant1 = new Immigrant(firstName,lastName,Anum);
 		if(searchedImmigrant1.validateInfo())
-			searchedImmigrant1 = Database.getImmigrant(firstName, lastName, Anum);
+			searchedImmigrant1 = Database.getImmigrant(Anum,firstName, lastName);
 		else
 			return null;
 		return searchedImmigrant1;
@@ -81,6 +81,12 @@ public class Immigrant{
 		//Call setNext
 		
 	}
+
+	public String toString()
+	{
+		return firstName + " " + lastName + " " + alienID;
+	}
+
 	public static void main(String[] args) {
 		Immigrant a = new Immigrant("Long", "John", "123asdf");
 		a.setFirstName("YOHOBO");

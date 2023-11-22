@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: WorkflowTableTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in WorkflowTableTest
+removeFirst1(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<null>
+	at WorkflowTableTest.removeFirst1(WorkflowTableTest.java:71)
+
+removeFirst2(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Waldo Warrenton GF4TR> but was:<null>
+	at WorkflowTableTest.removeFirst2(WorkflowTableTest.java:80)
+
+getFirst1(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<null>
+	at WorkflowTableTest.getFirst1(WorkflowTableTest.java:50)
+
+getFirst2(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Values should be different. Actual: Waldo Warrenton GF4TR
+	at WorkflowTableTest.getFirst2(WorkflowTableTest.java:57)
+
+getFirst3(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<Waldo Warrenton GF4TR>
+	at WorkflowTableTest.getFirst3(WorkflowTableTest.java:64)
+
+getFirst4(WorkflowTableTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<Waldo Warrenton GF4TR>
+	at WorkflowTableTest.getFirst4(WorkflowTableTest.java:88)
+
