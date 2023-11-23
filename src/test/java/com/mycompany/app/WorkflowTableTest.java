@@ -32,7 +32,9 @@ public class WorkflowTableTest {
 	@Test
 	public void setNext1()
 	{
-		assertEquals(1,wft.setNext(a));
+		assertEquals(0,wft.setNext(a));
+		assertEquals(1,wft.setNext(b));
+		wft.removeFirst();
 		wft.removeFirst();
 	}
 

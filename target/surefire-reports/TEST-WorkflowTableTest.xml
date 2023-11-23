@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="WorkflowTableTest" time="0.002" tests="9" errors="0" skipped="0" failures="6">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="WorkflowTableTest" time="0" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
-    <property name="sun.java.command" value="C:\Users\louis\AppData\Local\Temp\surefire14227597000940628911\surefirebooter12635607130912160501.jar C:\Users\louis\AppData\Local\Temp\surefire14227597000940628911 2023-11-22T14-43-02_605-jvmRun1 surefire12060269530135051670tmp surefire_08555376136872250303tmp"/>
+    <property name="sun.java.command" value="C:\Users\louis\AppData\Local\Temp\surefire12830008222793414672\surefirebooter14062391602590387761.jar C:\Users\louis\AppData\Local\Temp\surefire12830008222793414672 2023-11-23T01-42-58_442-jvmRun1 surefire17746618747894839049tmp surefire_06228053975619648157tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\louis\git\repository\target\test-classes;C:\Users\louis\git\repository\target\classes;C:\Users\louis\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\louis\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-controls\21.0.1\javafx-controls-21.0.1.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-controls\21.0.1\javafx-controls-21.0.1-win.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-graphics\21.0.1\javafx-graphics-21.0.1.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-graphics\21.0.1\javafx-graphics-21.0.1-win.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-base\21.0.1\javafx-base-21.0.1.jar;C:\Users\louis\.m2\repository\org\openjfx\javafx-base\21.0.1\javafx-base-21.0.1-win.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\louis\AppData\Local\Temp\surefire14227597000940628911\surefirebooter12635607130912160501.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\louis\AppData\Local\Temp\surefire12830008222793414672\surefirebooter14062391602590387761.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19+36-2238"/>
@@ -58,37 +58,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
-  <testcase name="removeFirst1" classname="WorkflowTableTest" time="0">
-    <failure message="expected:&lt;Jeff Stevens A54f6&gt; but was:&lt;null&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<null>
-	at WorkflowTableTest.removeFirst1(WorkflowTableTest.java:71)
-]]></failure>
-  </testcase>
-  <testcase name="removeFirst2" classname="WorkflowTableTest" time="0">
-    <failure message="expected:&lt;Waldo Warrenton GF4TR&gt; but was:&lt;null&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<Waldo Warrenton GF4TR> but was:<null>
-	at WorkflowTableTest.removeFirst2(WorkflowTableTest.java:80)
-]]></failure>
-  </testcase>
+  <testcase name="removeFirst1" classname="WorkflowTableTest" time="0"/>
+  <testcase name="removeFirst2" classname="WorkflowTableTest" time="0"/>
   <testcase name="removeFirst4" classname="WorkflowTableTest" time="0"/>
-  <testcase name="getFirst1" classname="WorkflowTableTest" time="0">
-    <failure message="expected:&lt;Jeff Stevens A54f6&gt; but was:&lt;null&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<null>
-	at WorkflowTableTest.getFirst1(WorkflowTableTest.java:50)
-]]></failure>
-  </testcase>
-  <testcase name="getFirst2" classname="WorkflowTableTest" time="0">
-    <failure message="Values should be different. Actual: Waldo Warrenton GF4TR" type="java.lang.AssertionError">java.lang.AssertionError: Values should be different. Actual: Waldo Warrenton GF4TR
-	at WorkflowTableTest.getFirst2(WorkflowTableTest.java:57)
-</failure>
-  </testcase>
-  <testcase name="getFirst3" classname="WorkflowTableTest" time="0">
-    <failure message="expected:&lt;Jeff Stevens A54f6&gt; but was:&lt;Waldo Warrenton GF4TR&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<Jeff Stevens A54f6> but was:<Waldo Warrenton GF4TR>
-	at WorkflowTableTest.getFirst3(WorkflowTableTest.java:64)
-]]></failure>
-  </testcase>
-  <testcase name="getFirst4" classname="WorkflowTableTest" time="0">
-    <failure message="expected null, but was:&lt;Waldo Warrenton GF4TR&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected null, but was:<Waldo Warrenton GF4TR>
-	at WorkflowTableTest.getFirst4(WorkflowTableTest.java:88)
-]]></failure>
-  </testcase>
+  <testcase name="getFirst1" classname="WorkflowTableTest" time="0"/>
+  <testcase name="getFirst2" classname="WorkflowTableTest" time="0"/>
+  <testcase name="getFirst4" classname="WorkflowTableTest" time="0"/>
   <testcase name="setNext1" classname="WorkflowTableTest" time="0"/>
   <testcase name="setNext2" classname="WorkflowTableTest" time="0"/>
 </testsuite>
