@@ -97,4 +97,13 @@ public class ImmigrantTest {
         immigrant.setStatus("Approved");
         assertEquals("Approved", immigrant.getStatus());
     }
+
+	@Test
+	public void testEquals()
+	{
+
+		Immigrant immigrant4 = new Immigrant("John", "Doe", "123456");
+		assertTrue(immigrant4.equals(immigrant));
+	}
+
 }

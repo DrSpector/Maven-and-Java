@@ -6,9 +6,9 @@ import org.junit.Test;
 
 public class WorkflowTableTest {
 
-	WorkflowTable wft;
-	Immigrant a,b,c;
 	
+	Immigrant a,b,c;
+	WorkflowTable wft;
 	public static void main(String[] args)
 	{	
 		
@@ -33,43 +33,49 @@ public class WorkflowTableTest {
 	public void setNext1()
 	{
 		assertEquals(1,wft.setNext(a));
+		wft.removeFirst();
 	}
 
 	//setNext returns -1 if given a bad item to add
 	@Test
 	public void setNext2()
 	{
+		
 		assertNotEquals(-1,wft.setNext(null));
+		wft.removeFirst();
 	}
 
 	//Peeking at wft should return a
 	@Test
 	public void getFirst1()
 	{
-		
+		wft.setNext(a);
 		assertEquals(a,wft.getFirst());
+		wft.removeFirst();
 	}
 	//Peeking at wft should not return b
 	@Test
 	public void getFirst2()
 	{
+		wft.setNext(a);
 		wft.setNext(b);
 		assertNotEquals(b,wft.getFirst());
+		assertEquals(a,wft.getFirst());
+		wft.removeFirst();		
+		wft.removeFirst();
 	}
 	
-	//Test that a is still in index 0
-	@Test
-	public void getFirst3()
-	{
-		assertEquals(a,wft.getFirst());
-	}
+
 	
 	//Popping wft should return a. a should then no longer be in wft
 	@Test
 	public void removeFirst1()
 	{
+		wft.setNext(a);
+		wft.setNext(b);
 		assertEquals(a, wft.removeFirst());
 		assertNotEquals(a,wft.getFirst());
+		wft.removeFirst();
 		
 	}
 
@@ -77,6 +83,9 @@ public class WorkflowTableTest {
 	@Test
 	public void removeFirst2()
 	{
+		wft.setNext(a);
+		wft.setNext(b);
+		wft.removeFirst();
 		assertEquals(b,wft.removeFirst());
 		assertNotEquals(b,wft.getFirst());
 	}
@@ -85,6 +94,8 @@ public class WorkflowTableTest {
 	@Test
 	public void getFirst4()
 	{
+		wft.setNext(a);
+		wft.removeFirst();
 		assertNull(wft.getFirst());
 	}
 
@@ -92,6 +103,8 @@ public class WorkflowTableTest {
 	@Test
 	public void removeFirst4()
 	{
+		wft.setNext(a);
+		wft.removeFirst();
 		assertNull(wft.removeFirst());
 	}
 	
