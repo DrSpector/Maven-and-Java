@@ -114,7 +114,7 @@ public class DEScreen extends Application {
 
 		if(idInput.getText().isEmpty() || fNameInput.getText().isEmpty() || lNameInput.getText().isEmpty())
 		{
-			userMessage.setText("Error, one or more fields blank.");
+			userMessage.setText("Error: one or more fields blank.");
 			userMessage.setVisible(true);
 		}
 		else
@@ -130,7 +130,7 @@ public class DEScreen extends Application {
 			}
 			else
 			{
-				userMessage.setText("Immigrant not Found.");
+				userMessage.setText("No Match");
 				userMessage.setVisible(true);
 			}
 		}
@@ -148,10 +148,12 @@ public class DEScreen extends Application {
 			putImm.setStatus(statusInput.getText());
 			Database.setImmigrant(putImm);
 			WorkflowTable.setNext(putImm);
+			userMessage.setVisible(true);
+			userMessage.setText("Record Updated");
 		}
 		else
 		{
-			userMessage.setText("Immigrant not Found.");
+			userMessage.setText("No Match");
 			userMessage.setVisible(true);
 		}
             }
