@@ -94,7 +94,7 @@ public class WorkflowTableTest {
 	
 	//wft should be empty, null should be returned when peeked.
 	@Test
-	public void getFirst4()
+	public void getFirst3()
 	{
 		wft.setNext(a);
 		wft.removeFirst();
@@ -103,7 +103,7 @@ public class WorkflowTableTest {
 
 	//wft should be empty, null should be returned when popped.
 	@Test
-	public void removeFirst4()
+	public void removeFirst3()
 	{
 		wft.setNext(a);
 		wft.removeFirst();
