@@ -70,9 +70,6 @@ public class Driver extends Application
 	Scanner keyboard = new Scanner(System.in);
 
 
-	WorkflowTable.setNext(new Immigrant("Jon","Smith","A1245"));
-	WorkflowTable.setNext(new Immigrant("JOJO","Smitch","A007"));
-
 	Database database = new Database();
 	database.setImmigrant(new Immigrant("Jon","Smith","A1245"));
 	database.setImmigrant(new Immigrant("Ron","Smith","A1246"));

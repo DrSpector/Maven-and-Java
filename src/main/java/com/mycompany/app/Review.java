@@ -16,15 +16,15 @@ public class Review extends Application {
     private Label alienLabel;
     private Label statusLabel;
 
-
     private Stage editStage;
-
     private Immigrant currentImmigrant;
-
+    
+    
     public boolean supplementCheck() {
         // Method to perform a validation check on the immigrant data
         // Implement the validation logic here
-        
+        if(currentImmigrant ==null)
+        {return false;}
         return currentImmigrant.getFirstName().length() != 0 && currentImmigrant.getLastName().length() != 0 && currentImmigrant.getAlienID().length() != 0;
             
 
@@ -32,7 +32,9 @@ public class Review extends Application {
     public boolean allValid() {
 
         boolean flag = true;
-
+		if (currentImmigrant == null){
+			return false;
+		}
         if (currentImmigrant.getStatus() == null){
             flag = false;
         }
@@ -59,7 +61,7 @@ public class Review extends Application {
             currentImmigrant.setLastName(lastField.getText());
             if(statusField.getText() == "null" || statusField.getText() == ""){
 
-                currentImmigrant.setStatus("null");
+                currentImmigrant.setStatus("");
             }
             else{
                 currentImmigrant.setStatus(statusField.getText());
@@ -83,7 +85,7 @@ public class Review extends Application {
     @Override
     public void start(Stage stage) {
  
-        alienLabel = new Label("Alien Number: ");
+        alienLabel = new Label("Alien ID: ");
         firstLabel = new Label("First Name: ");
         lastLabel = new Label("Last Name: ");
         statusLabel = new Label("Status: ");
@@ -104,7 +106,7 @@ public class Review extends Application {
         Button edit = new Button("Edit");
         Button valid = new Button("Valid");
         Button next = new Button("Next");
-        Button done = new Button("Done");
+        Button submit = new Button("Submit");
 
         check.setOnAction(e -> {
             // Code to be executed when the "Check" button is clicked
@@ -114,7 +116,7 @@ public class Review extends Application {
                 System.out.println(currentImmigrant.getLastName());
             }
             else{
-                messageLabel.setText("ERORR");
+                messageLabel.setText("ERROR");
             }
             
         });
@@ -125,25 +127,34 @@ public class Review extends Application {
                 messageLabel.setText("PASSED");
             }
             else{
-                messageLabel.setText("ERORR: CANT FIND STATUS");
+                messageLabel.setText("ERROR: CANT FIND STATUS");
             }
             
         });
 
-        edit.setOnAction(e -> edit());
+        edit.setOnAction(e -> {
+        
+        	if(currentImmigrant == null){
+        		messageLabel.setText("ERROR: NO IMMIGRANT PRESENT");
+        	}
+        	else {
+        		edit();
+        	}
+        
+        });
         
         next.setOnAction(e -> {
             currentImmigrant = WorkflowTable.getFirst();
             if(currentImmigrant == null){
-            	alienLabel.setText("Alien Number: ");
+            	alienLabel.setText("Alien ID: ");
 				firstLabel.setText("First Name: ");
 				lastLabel.setText("Last Name: ");
 				statusLabel.setText("Status: ");
-            	messageLabel.setText("End of table");
+            	messageLabel.setText("ERORR: NO IMMIGRANT PRESENT");
             	
             }
             else{
-				alienLabel.setText("Alien Number: " + currentImmigrant.getAlienID());
+				alienLabel.setText("Alien ID: " + currentImmigrant.getAlienID());
 				firstLabel.setText("First Name: " + currentImmigrant.getFirstName());
 				lastLabel.setText("Last Name: " + currentImmigrant.getLastName());
 				statusLabel.setText("Status: " + currentImmigrant.getStatus());
@@ -151,23 +162,30 @@ public class Review extends Application {
 			}
         });
         
-        done.setOnAction(e ->{
-        	currentImmigrant = WorkflowTable.removeFirst();
-        	messageLabel.setText("Immigrant saved");
+        submit.setOnAction(e ->{
+        	if(currentImmigrant != null){
+				if(!currentImmigrant.getStatus().equals("")){
+					currentImmigrant = WorkflowTable.removeFirst();
+					messageLabel.setText("IMMIGRANT SUBMITTED");
+				}
+				else{
+					messageLabel.setText("INVALID STATUS");
+				}
+        	}        
+        	
         });
         
 		
 		
         HBox hbox = new HBox();
-        hbox.getChildren().addAll(check, edit, valid, next, done);
+        hbox.getChildren().addAll(check, valid, edit, submit, next);
         
         // Create an VBox to hold the labels
         VBox vbox = new VBox();
         vbox.getChildren().addAll(alienLabel,firstLabel, lastLabel, statusLabel, hbox, messageLabel);
         
-        
 		
-        Scene var = new Scene(vbox, 640, 480);
+        Scene var = new Scene(vbox, 600, 250);
 
         stage.setScene(var);
         stage.show();
