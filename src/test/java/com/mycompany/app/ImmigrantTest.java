@@ -18,7 +18,19 @@ public class ImmigrantTest {
 	    database.setImmigrant(new Immigrant("Joe","Deck","0987654"));
 
     }
-	
+/**
+* This test method, testCreateImmigrant, is designed to validate the functionality
+* of the createImmigrant method in the Immigrant class. The test covers the following scenarios:
+* 1. Creating an immigrant with valid data.
+* 2. Verifying the correctness of the immigrant's attributes.
+* 3. Creating an immigrant with specific data using the Immigrant constructor.
+* 4. Creating an immigrant with null values using the Immigrant constructor.
+* 5. Ensuring that the 'status' attribute is initialized to an empty string.
+*
+* Note: The actual implementation of the createImmigrant method is assumed to be handled
+* appropriately, and any dependencies, such as Database.getImmigrant, are mocked or managed
+* for testing purposes.
+*/
     @Test
     public void testCreateImmigrant() {
         //Assuming Database.getImmigrant is a mock or is handled appropriately in testing
@@ -46,7 +58,20 @@ public class ImmigrantTest {
         assertEquals(null, immigrant3.getAlienID());
         assertEquals("", immigrant3.getStatus());
     }
-
+/**
+ * This test method, testCreateImmigrant1, verifies the behavior of the createImmigrant1
+ * method in the Immigrant class. The method is expected to create an Immigrant object
+ * with the specified parameters and handle null values appropriately. The test covers
+ * the following scenarios:
+ * 1. Creating an Immigrant with a null first name.
+ * 2. Creating an Immigrant with a null last name.
+ * 3. Creating an Immigrant with a null alien ID.
+ * 4. Creating an Immigrant with valid parameters (non-null values).
+ *    The created Immigrant object is assigned to the 'immigrant3' variable for further validation.
+ * 
+ * Note: The actual implementation of the createImmigrant1 method is assumed to handle null values
+ * appropriately and return null if any of the required parameters is null.
+ */
 	@Test
     public void testCreateImmigrant1() {
 
@@ -66,6 +91,21 @@ public class ImmigrantTest {
     assertEquals("0987654", immigrant3.getAlienID());
         
     }
+/**
+ * This test method, testValidateInfo, validates the behavior of the validateInfo
+ * method in the Immigrant class. The method is designed to check whether the
+ * necessary fields (first name, last name, and alien ID) are non-null.
+ * The test covers the following scenarios:
+ * 1. Validating an Immigrant with non-null values for all fields.
+ * 2. Validating an Immigrant with a null first name.
+ * 3. Validating an Immigrant with a null last name.
+ * 4. Validating an Immigrant with a null alien ID.
+ * 5. Validating an Immigrant with null values for both first and last names and a non-null alien ID.
+ * 6. Validating an Immigrant with null values for all fields.
+ * 
+ * Note: The actual implementation of the validateInfo method is assumed to return true only
+ * if all required fields (except status) are non-null.
+ */
     // Any of the field except status cannot be null.
     @Test
     public void testValidateInfo() {
@@ -90,7 +130,18 @@ public class ImmigrantTest {
         assertFalse(immigrant.validateInfo());
         
     }
-
+/**
+ * This test method, testCompareTo, evaluates the behavior of the compareTo method
+ * in the Immigrant class. The method is expected to compare two Immigrant objects
+ * based on their first names in alphabetical order. The test covers the following scenarios:
+ * 1. Comparing an Immigrant with a first name ("John") that comes after another Immigrant
+ *    with a different first name ("Alice"). The expected result is greater than 0.
+ * 2. Comparing an Immigrant with the same first name ("John") as another Immigrant. 
+ *    The expected result is 0 since the first names are identical.
+ * 
+ * Note: The actual implementation of the compareTo method is assumed to compare
+ * Immigrant objects based on their first names and return the appropriate result.
+ */
     @Test
     public void testCompareTo() {
         Immigrant immigrant2 = new Immigrant("Alice", "Smith", "789012");
@@ -100,7 +151,18 @@ public class ImmigrantTest {
         immigrant2 = new Immigrant("John", "Smith", "789012");
         assertTrue(immigrant.compareTo(immigrant2) == 0); // Same first name, should return 0
     }
-
+/**
+ * This test method, testSetStatus, verifies the functionality of the setStatus
+ * method in the Immigrant class. The method is designed to set the status of
+ * an Immigrant and ensure that the status is updated correctly. The test covers
+ * the following scenarios:
+ * 1. Checking that the status is initially an empty string.
+ * 2. Setting the status to "Pending" and confirming the update.
+ * 3. Setting the status to "Approved" and confirming the update.
+ * 
+ * Note: The actual implementation of the setStatus method is assumed to correctly
+ * update the 'status' attribute of the Immigrant object.
+ */
     @Test
     public void testSetStatus() {
         //status should be empty string intially
@@ -113,7 +175,22 @@ public class ImmigrantTest {
         immigrant.setStatus("Approved");
         assertEquals("Approved", immigrant.getStatus());
     }
-
+/**
+ * This test method, testEquals, evaluates the correctness of the equals method
+ * in the Immigrant class. The method is expected to compare two Immigrant objects
+ * for equality based on their first name, last name, and alien ID. The test covers
+ * the following scenarios:
+ * 1. Comparing two identical Immigrant objects. The expected result is true.
+ * 2. Comparing two different Immigrant objects with a different first name.
+ *    The expected result is false.
+ * 3. Comparing two different Immigrant objects with a different last name.
+ *    The expected result is false.
+ * 4. Comparing two different Immigrant objects with a different alien ID.
+ *    The expected result is false.
+ * 
+ * Note: The actual implementation of the equals method is assumed to correctly
+ * compare Immigrant objects based on their first name, last name, and alien ID.
+ */
 	@Test
 	public void testEquals()
 	{
